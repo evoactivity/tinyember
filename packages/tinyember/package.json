@@ -1,0 +1,77 @@
+{
+  "name": "tinyember",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "ember-addon"
+  ],
+  "files": [
+    "addon-main.cjs",
+    "dist"
+  ],
+  "scripts": {
+    "build": "concurrently 'pnpm:build:*'",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./declarations/index.d.ts"
+    },
+    "./modifier": {
+      "default": "./dist/modifier.js",
+      "types": "./declarations/modifier.d.ts"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.9.0",
+    "@glimmer/component": "^2.0.0",
+    "@glimmer/tracking": "^1.1.2",
+    "decorator-transforms": "^2.3.0",
+    "ember-modifier": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.7",
+    "@babel/plugin-transform-typescript": "^7.26.7",
+    "@babel/runtime": "^7.26.7",
+    "@embroider/addon-dev": "^7.1.1",
+    "@glint/core": "^1.4.0",
+    "@glint/environment-ember-loose": "^1.4.0",
+    "@glint/environment-ember-template-imports": "^1.4.0",
+    "@glint/template": "^1.4.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@tsconfig/ember": "^3.0.2",
+    "babel-plugin-ember-template-compilation": "^2.3.0",
+    "concurrently": "^9.1.2",
+    "ember-source": "~6.2.0",
+    "rollup": "^4.34.5",
+    "typescript": "^5.5.4",
+    "webpack": "^5.88.0"
+  },
+  "peerDependencies": {
+    "ember-source": "^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "ember-source": {
+      "optional": true
+    }
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "versionCompatibility": {
+      "ember": "3.24 || 3.28 || >=4.0"
+    }
+  }
+}
